@@ -1,0 +1,24 @@
+
+    <menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".AddWork.AddWork">
+    <item
+        android:id="@+id/action_settings2"
+        android:orderInCategory="100"
+        android:title="Action"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_search2"
+        android:orderInCategory="200"
+        android:title="Search"
+        android:icon="@drawable/ic_navigation_check_24"
+        app:showAsAction="ifRoom"
+        android:onClick="trySave"
+
+    ></item>
+
+
+</menu>
+
