@@ -8,4 +8,5 @@ import com.example.rohit.tolist.Models.Work;
 
 public interface onLongItemClick {
     public  void onLongClick(Work  postion);
+
 }

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.rohit.tolist.Category.OnItemClickListener;
 import com.example.rohit.tolist.R;
 import com.example.rohit.tolist.Models.Work;
 
@@ -20,17 +21,18 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsViewHolder>{
 
     List<Work> myWork;
     String clkCat;
-    List<Work> catList;
+  public static  List<Work> catList;
     onLongItemClick longListener;
+    onMyClickListener onClickListener;
 
 
 
-    public DetailsAdapter(List<Work> myWork,String cat ,onLongItemClick listener) {
+    public DetailsAdapter(List<Work> myWork,String cat ,onLongItemClick listener,onMyClickListener onClickListener) {
         this.myWork = myWork;
         clkCat = cat;
         catList = findCategoryList(clkCat);
         longListener = listener;
-
+        this. onClickListener = onClickListener;
     }
 
     private List<Work> findCategoryList(String clkCat) {
@@ -66,6 +68,7 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsViewHolder>{
         holder.heading.setText(wk.getTitle());
         holder.details.setText(wk.getDetail());
         holder.bind(wk,longListener);
+        holder.bind2(position,onClickListener);
     }
 
     @Override

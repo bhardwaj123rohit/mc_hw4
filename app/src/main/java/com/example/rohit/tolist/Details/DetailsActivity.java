@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 import com.example.rohit.tolist.AddWork.AddWork;
 import com.example.rohit.tolist.Category.CategoryActivity;
+import com.example.rohit.tolist.Category.OnItemClickListener;
+import com.example.rohit.tolist.FinalDetails.FinalDetails;
 import com.example.rohit.tolist.R;
 import com.example.rohit.tolist.Models.Work;
 import com.google.firebase.database.ChildEventListener;
@@ -33,7 +35,7 @@ public class DetailsActivity extends AppCompatActivity {
     private  RecyclerView mRecycleView;
     private DetailsAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private  List<Work> myTodo = new ArrayList<Work>();
+    public  List<Work> myTodo = new ArrayList<Work>();
     public  String clickedCategory;
 
     // Firebase database instance and refrence
@@ -87,6 +89,20 @@ public class DetailsActivity extends AppCompatActivity {
                 finish();
 
             }
+        },new onMyClickListener() {
+            @Override
+            public void onItemClick(int item) {
+                Log.v("Clickable.....","Item Clicked!!");
+               // Toast.makeText(DetailsActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
+                Intent data = new Intent(DetailsActivity.this,FinalDetails.class);
+              //  data.putExtra("title",item.getTitle());
+              //  data.putExtra("details",item.getDetail());
+               // data.putExtra("position",myTodo.indexOf(item));
+                data.putExtra("position",item);
+                //data.putExtra("workList",myTodo);
+                // Bundle list = new Bundle();
+                startActivity(data);
+            }
         });
 
         mRecycleView.setAdapter(mAdapter);
@@ -116,6 +132,21 @@ public class DetailsActivity extends AppCompatActivity {
                         Log.v("Data Removed: ",Integer.toString(myTodo.size()));
                         finish();
 
+                    }
+                },new onMyClickListener() {
+                    @Override
+                    public void onItemClick(int item) {
+                        Log.v("Clickable.....","Item Clicked!!");
+                       // Toast.makeText(DetailsActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
+                        Intent data = new Intent(DetailsActivity.this,FinalDetails.class);
+                        //data.putExtra("category",item.getTitle());
+                        //data.putExtra("details",item.getDetail());
+                        //data.putExtra("position",myTodo.indexOf(item));
+                        data.putExtra("position",item);
+
+                        //data.putExtra("workList",myTodo);
+                        // Bundle list = new Bundle();
+                        startActivity(data);
                     }
                 });
                 mRecycleView.setAdapter(mAdapter);

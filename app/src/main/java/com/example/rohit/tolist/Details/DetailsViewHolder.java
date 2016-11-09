@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.rohit.tolist.Category.OnItemClickListener;
 import com.example.rohit.tolist.Models.Work;
 import com.example.rohit.tolist.R;
 
@@ -33,6 +34,20 @@ import com.example.rohit.tolist.R;
     }
 
 
+    public void bind2(final int wk, final onMyClickListener onClickListener) {
+
+
+        heading.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v){
+
+                onClickListener.onItemClick(wk);
+            }
+        });
+
+
+    }
 }
 
 

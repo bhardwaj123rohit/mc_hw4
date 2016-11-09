@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Details.DetailsActivity" />
-        <activity android:name=".AddWork.AddWork"></activity>
+        <activity android:name=".AddWork.AddWork" />
+        <activity android:name=".FinalDetails.FinalDetails"></activity>
     </application>
 
 </manifest>
